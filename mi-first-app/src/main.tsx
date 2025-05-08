@@ -7,6 +7,6 @@ import AppProfe from './AppProfe.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <AppProfe />  
+    <App />  
   </StrictMode>,
 )

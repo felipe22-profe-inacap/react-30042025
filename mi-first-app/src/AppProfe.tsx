@@ -1,21 +1,33 @@
 import { useState } from 'react'
 import './AppProfe.css'
 import { Button } from 'react-bootstrap'
+import Saludo from './components/Saludo'
+import ContadorConEfecto from './components/ContadorConEfecto';
 
 function AppProfe() {
-  const [count, setCount] = useState(0)
+  const [tipoMensaje, setTipoMensaje] = useState<'danger'|'success'|'info'>('info');
+
 
   return (
     <>
-      <Button variant="primary">Primary</Button>
-      <Button variant="secondary">Secondary</Button>
-      <Button variant="success">Success</Button>
-      <Button variant="warning">Warning</Button>
-      <Button variant="danger">Danger</Button>
-      <Button variant="info">Info</Button>
-      <Button variant="light">Light</Button>
-      <Button variant="dark">Dark</Button>
-      <Button variant="link">Link</Button>
+      <Saludo mensaje="Hola soy el saludo reactivo" tipo={tipoMensaje}></Saludo>
+
+      <Button
+        variant='success'
+        onClick={() => setTipoMensaje('success')}
+      >
+        Success
+      </Button>&nbsp;&nbsp;
+      <Button
+        variant='danger'
+        onClick={() => setTipoMensaje('danger')}
+      >
+        Danger
+      </Button> 
+    <br /><br />
+      <div className='alert alert-info m5'>
+        <ContadorConEfecto></ContadorConEfecto>
+      </div>
     </>
   );
 }
